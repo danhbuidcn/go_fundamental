@@ -102,7 +102,7 @@ func loadPage(title string) *Page {
 
 Hàm `loadPage` tạo tên tập tin từ tham số tiêu đề, đọc nội dung của tập tin vào một biến mới `body`, và trả về một con trỏ đến một literal `Page` được xây dựng với các giá trị tiêu đề và nội dung phù hợp.
 
-Các hàm có thể trả về nhiều giá trị. Hàm thư viện chuẩn `os.ReadFile` trả về `[]byte` và `error`. Trong `loadPage`, lỗi chưa được xử lý; "identifier trống" được đại diện bởi ký hiệu gạch dưới (`_`) được sử dụng để loại bỏ giá trị lỗi trả về (về cơ bản là gán giá trị cho không có gì).
+Các hàm có thể trả về nhiều giá trị. Hàm thư viện chuẩn `os.ReadFile` trả về `[]byte` và `error`. Trong `loadPage`, lỗi chưa được xử lý; "blank identifier" được đại diện bởi ký hiệu gạch dưới (`_`) được sử dụng để loại bỏ giá trị lỗi trả về (về cơ bản là gán giá trị cho không có gì).
 
 Nhưng điều gì sẽ xảy ra nếu `ReadFile` gặp lỗi? Ví dụ, tập tin có thể không tồn tại. Chúng ta không nên bỏ qua các lỗi như vậy. Hãy sửa đổi hàm để trả về `*Page` và `error`.
 
@@ -482,13 +482,13 @@ Lưu ý rằng tên mẫu là tên tệp mẫu, vì vậy chúng ta phải nối
 
 Như bạn có thể đã quan sát, chương trình này có một lỗ hổng bảo mật nghiêm trọng: người dùng có thể cung cấp một đường dẫn tùy ý để được đọc/ghi trên máy chủ. Để giảm thiểu điều này, chúng ta có thể viết một hàm để xác thực tiêu đề với một biểu thức chính quy.
 
-Đầu tiên, thêm `"regexp"` vào danh sách nhập khẩu. Sau đó, chúng ta có thể tạo một biến toàn cục để lưu trữ biểu thức xác thực của chúng ta:
+Đầu tiên, thêm `"regexp"` vào danh sách `import`. Sau đó, chúng ta có thể tạo một biến toàn cục để lưu trữ biểu thức xác thực của chúng ta:
 
 ```go
 var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9]+)$")
 ```
 
-Hàm `regexp.MustCompile` sẽ phân tích và biên dịch biểu thức chính quy, và trả về một `regexp.Regexp`. `MustCompile` khác với `Compile ở chỗ nó sẽ panic nếu việc biên dịch biểu thức gặp lỗi, trong khi `Compile` trả về lỗi như một tham số thứ hai.
+Hàm `regexp.MustCompile` sẽ phân tích và biên dịch biểu thức chính quy, và trả về một `regexp.Regexp`. `MustCompile` khác với `Compile` ở chỗ nó sẽ panic nếu việc biên dịch biểu thức gặp lỗi, trong khi `Compile` trả về lỗi như một tham số thứ hai.
 
 Bây giờ, hãy viết một hàm sử dụng biểu thức `validPath` để xác thực đường dẫn và trích xuất tiêu đề trang:
 

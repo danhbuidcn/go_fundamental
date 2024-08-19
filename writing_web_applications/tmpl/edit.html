@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit {{.Title}}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Edit {{.Title}}</h1>
+        <nav>
+            <a href="/">Back to Home</a>
+            <a href="/view/{{.Title}}">View</a>
+        </nav>
+    </header>
+    <main>
+        <form action="/save/{{.Title}}" method="post">
+            <textarea name="body" rows="20" cols="80">{{printf "%s" .Body}}</textarea><br>
+            <input type="submit" value="Save">
+        </form>
+    </main>
+</body>
+</html>
