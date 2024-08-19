@@ -2,6 +2,8 @@
 
 This repository contains resources and code examples for learning the Go programming language. The `README` provides instructions for setting up and running Go, along with links to different folders that cover various aspects of Go programming.
 
+The Go language was developed with the criteria of simplicity, efficiency, and ease of maintenance, aiming at writing clear and fast code.
+
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Setup](#setup)
@@ -45,9 +47,11 @@ This command compiles and runs the Go file immediately. The source code is recom
 
 ## Folder Structure
 
+- [Tour of Go](./tour_of_go/README.md): Introduction to the Go programming language, with modules, exercises, and example programs that you can navigate through and run directly in your browser.
 - [Basic](./basic/README.md): Provides examples and explanations of fundamental Go concepts such as syntax, variables, data types, and control structures.
 - [How to Write Go Code](./how_to_write_go_code/README.md): A guide to writing and organizing Go code, including project structure and coding best practices.
-- [Effective Go](https://go.dev/doc/code): Provides guidelines and best practices for writing clear, idiomatic Go code, emphasizing that understanding Go's unique properties and conventions is crucial for producing high-quality Go programs.
+- [Language specification](./language_specification/README.md): This manual details the Go programming language, focusing on its strong typing, concurrency, and package-based structure.
+- [Effective Go](./effective_go/README.md): Provides guidelines and best practices for writing clear, idiomatic Go code, emphasizing that understanding Go's unique properties and conventions is crucial for producing high-quality Go programs.
 - [Writing Web pplications](./writing_web_applications/README.md): A guide to writing and organizing Go code, including project structure and coding best practices.
 - [Advance](./advance/README.md): Explores advanced Go topics like concurrency, goroutines, channels, performance optimization, and system interactions.
 - [Projects](./projects/README.md): Offers practical examples and step-by-step guides for building complete projects with Go, applying learned concepts to real-world problems.
