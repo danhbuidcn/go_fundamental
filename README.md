@@ -47,6 +47,8 @@ This command compiles and runs the Go file immediately. The source code is recom
 
 ## Folder Structure
 
+Here is the knowledge about Go language. The knowledge is compiled from various sources, so there may be some overlap:
+
 - [Tour of Go](./tour_of_go/README.md): Introduction to the Go programming language, with modules, exercises, and example programs that you can navigate through and run directly in your browser.
 - [Basic](./basic/README.md): Provides examples and explanations of fundamental Go concepts such as syntax, variables, data types, and control structures.
 - [How to Write Go Code](./how_to_write_go_code/README.md): A guide to writing and organizing Go code, including project structure and coding best practices.
@@ -67,9 +69,11 @@ To run Go code within this repository:
 ## Learning Resources
 
 Enhance your Go programming skills with these resources:
-
+- [Documentation](https://go.dev/doc/)
+- [Standard library](https://pkg.go.dev/std)
 - <a href="https://roadmap.sh/golang" target="_blank">Go Roadmap</a>: A comprehensive guide to learning Go and its ecosystem.
 - <a href="https://go.dev/wiki/" target="_blank">Go Wiki</a>: A collection of information about the Go Programming Language.
 - <a href="https://www.cloudbees.com/blog/best-practices-for-a-new-go-developer" target="_blank">Best Practices for a New Go Developer</a>: Key practices for new Go developers to understand and adopt.
 - <a href="https://go.dev/ref/spec" target="_blank">The Go Programming Language Specification</a>: This is the reference manual for the Go programming language
 - <a href="https://200lab.io/blog/tag/golang/" target="_blank">Go blogs</a>: Collection of articles sharing Golang programming techniques
+- <a href="https://kungfutech.edu.vn/khoa-hoc/go" target="_blank">Go course</a>: Go Lang programming course from basic to advanced
