@@ -1,79 +1,61 @@
-# go_fundamental
+# Simple Bank Backend Service
 
-This repository contains resources and code examples for learning the Go programming language. The `README` provides instructions for setting up and running Go, along with links to different folders that cover various aspects of Go programming.
+## Introduction
 
-The Go language was developed with the criteria of simplicity, efficiency, and ease of maintenance, aiming at writing clear and fast code.
+This project is a step-by-step guide to designing, developing, and deploying a backend web service from scratch using Golang. Throughout the course, we will build a backend web service for a simple bank, providing APIs to:
 
-## Table of Contents
-- [Project Overview](#project-overview)
-- [Setup](#setup)
-- [Folder Structure](#folder-structure)
-- [How to Run Go Code](#how-to-run-go-code)
-- [Learning Resources](#learning-resources)
+- Create and manage bank accounts.
+- Record balance changes for each account.
+- Perform money transfers between accounts.
 
-## Project Overview
+## Course Structure
+The project is divided into six sections, covering a wide range of backend web development topics:
 
-This project demonstrates how to build and run Go applications. It includes several folders, each focusing on different areas of Go programming, from basic syntax to best practices for writing Go code.
+### 1. Database Design and Development Tools
+- Learn how to design a database and generate code for consistent and reliable DB interaction using transactions.
+- Understand DB isolation levels and their correct usage in production.
+- Use Docker for local development, Git for version control, and GitHub Actions for automated unit testing.
 
-For more information about Go, visit the [Go documentation](https://golang.org/doc/).
+### 2. Building RESTful APIs
+- Develop RESTful HTTP APIs using the Gin framework.
+- Cover topics such as app configuration, DB mocking for unit tests, error handling, user authentication, and API security using JWT and PASETO tokens.
 
-## Setup
+### 3. Docker and Kubernetes Deployment
+- Learn to build a minimal Docker image and deploy it to a Kubernetes cluster on AWS.
+- Set up an AWS account, create a production database, manage secrets, and deploy the service using GitHub Actions.
+- Secure the service with HTTPS and auto-renew TLS certificates using Let's Encrypt.
 
-### 1. Install Go
+### 4. Advanced Backend Topics
+- Manage user sessions, build gRPC APIs, and serve both gRPC and HTTP requests.
+- Embed Swagger documentation, perform partial record updates, and implement structured logging.
 
-For detailed instructions on installing Go, refer to the [official Go installation guide](https://golang.org/doc/install).
+### 5. Asynchronous Processing
+- Implement background workers and use Redis as a message queue for asynchronous processing.
+- Create and send emails using Gmail's SMTP server, and write unit tests for gRPC services with multiple dependencies.
 
-### 2. Clone the Repository
+### 6. Stability and Security
+- Improve server stability and security by updating dependencies, securing refresh tokens with cookies, and gracefully shutting down the server.
+- This section is continuously updated with new topics.
 
-```bash
-git clone https://github.com/danhbuidcn/go_fundamental.git
-cd go_fundamental
-```
+## Conclusion
+This project is designed to be comprehensive, allowing even those with little programming experience to follow along. By the end, you will have gained the confidence and skills to work effectively on your own projects.
 
-### 3. Build & Run the Application
+## How to run
 
-Compile and run a specific Go file:
-```bash
-go build -o main main.go
-./main
-```
-This command compiles the Go file, creates an executable named `main`, and runs it. The executable can be run directly without recompiling.
+- Create go project
+  ```
+  cp .env.sample .env
+  docker-compose up --build
+  ```
 
-Alternatively, run the Go file directly without creating an executable:
-```bash
-go run main.go
-```
-This command compiles and runs the Go file immediately. The source code is recompiled each time you run it.
+- Migrate db
+  ```
+  docker exec -it go_app /bin/sh
+  make migrate
+  ```
 
-## Folder Structure
-
-Here is the knowledge about Go language. The knowledge is compiled from various sources, so there may be some overlap:
-
-- [Tour of Go](./tour_of_go/README.md): Introduction to the Go programming language, with modules, exercises, and example programs that you can navigate through and run directly in your browser.
-- [Basic](./basic/README.md): Provides examples and explanations of fundamental Go concepts such as syntax, variables, data types, and control structures.
-- [How to Write Go Code](./how_to_write_go_code/README.md): A guide to writing and organizing Go code, including project structure and coding best practices.
-- [Language specification](./language_specification/README.md): This manual details the Go programming language, focusing on its strong typing, concurrency, and package-based structure.
-- [Effective Go](./effective_go/README.md): Provides guidelines and best practices for writing clear, idiomatic Go code, emphasizing that understanding Go's unique properties and conventions is crucial for producing high-quality Go programs.
-- [Writing Web pplications](./writing_web_applications/README.md): A guide to writing and organizing Go code, including project structure and coding best practices.
-- [Advance](./advance/README.md): Explores advanced Go topics like concurrency, goroutines, channels, performance optimization, and system interactions.
-- [Projects](./projects/README.md): Offers practical examples and step-by-step guides for building complete projects with Go, applying learned concepts to real-world problems.
-
-## How to Run Go Code
-
-To run Go code within this repository:
-
-1. Navigate to the folder containing the Go file you want to run.
-2. Use `go run filename.go` to run the file directly.
-3. Alternatively, use `go build -o outputname filename.go` to build an executable, then run the executable with `./outputname`.
-
-## Learning Resources
-
-Enhance your Go programming skills with these resources:
-- [Documentation](https://go.dev/doc/)
-- [Standard library](https://pkg.go.dev/std)
-- <a href="https://roadmap.sh/golang" target="_blank">Go Roadmap</a>: A comprehensive guide to learning Go and its ecosystem.
-- <a href="https://go.dev/wiki/" target="_blank">Go Wiki</a>: A collection of information about the Go Programming Language.
-- <a href="https://www.cloudbees.com/blog/best-practices-for-a-new-go-developer" target="_blank">Best Practices for a New Go Developer</a>: Key practices for new Go developers to understand and adopt.
-- <a href="https://go.dev/ref/spec" target="_blank">The Go Programming Language Specification</a>: This is the reference manual for the Go programming language
-- <a href="https://200lab.io/blog/tag/golang/" target="_blank">Go blogs</a>: Collection of articles sharing Golang programming techniques
-- <a href="https://kungfutech.edu.vn/khoa-hoc/go" target="_blank">Go course</a>: Go Lang programming course from basic to advanced
+- Initialize the module and install some packages
+  ```
+  go mod init simple_bank
+  go mod tidy
+  ```
