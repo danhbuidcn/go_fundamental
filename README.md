@@ -47,14 +47,16 @@ This command compiles and runs the Go file immediately. The source code is recom
 
 ## Folder Structure
 
+Here is the knowledge about Go language. The knowledge is compiled from various sources, so there may be some overlap:
+
 - [Tour of Go](./tour_of_go/README.md): Introduction to the Go programming language, with modules, exercises, and example programs that you can navigate through and run directly in your browser.
 - [Basic](./basic/README.md): Provides examples and explanations of fundamental Go concepts such as syntax, variables, data types, and control structures.
 - [How to Write Go Code](./how_to_write_go_code/README.md): A guide to writing and organizing Go code, including project structure and coding best practices.
-- [Language specification](./language_specification/README.md): This manual details the Go programming language, focusing on its strong typing, concurrency, and package-based structure.
-- [Effective Go](./effective_go/README.md): Provides guidelines and best practices for writing clear, idiomatic Go code, emphasizing that understanding Go's unique properties and conventions is crucial for producing high-quality Go programs.
-- [Writing Web pplications](./writing_web_applications/README.md): A guide to writing and organizing Go code, including project structure and coding best practices.
-- [Advance](./advance/README.md): Explores advanced Go topics like concurrency, goroutines, channels, performance optimization, and system interactions.
-- [Projects](./projects/README.md): Offers practical examples and step-by-step guides for building complete projects with Go, applying learned concepts to real-world problems.
+- [Language specification](./language_specification/README.md) `Coming soon`: This manual details the Go programming language, focusing on its strong typing, concurrency, and package-based structure.
+- [Effective Go](./effective_go/README.md) `Coming soon`: Provides guidelines and best practices for writing clear, idiomatic Go code, emphasizing that understanding Go's unique properties and conventions is crucial for producing high-quality Go programs.
+- [Writing Web applications](./writing_web_applications/README.md): A guide to writing and organizing Go code, including project structure and coding best practices.
+- [Advance](./advance/README.md) `To be continued`: Explores advanced Go topics like concurrency, goroutines, channels, performance optimization, and system interactions.
+- [Projects](./projects/README.md) `To be continued`: Offers practical examples and step-by-step guides for building complete projects with Go, applying learned concepts to real-world problems.
 
 ## How to Run Go Code
 
@@ -67,9 +69,11 @@ To run Go code within this repository:
 ## Learning Resources
 
 Enhance your Go programming skills with these resources:
-
+- <a href="https://go.dev/doc/" target="_blank">Documentation</a>
+- <a href="https://pkg.go.dev/std" target="_blank">Standard library</a>
 - <a href="https://roadmap.sh/golang" target="_blank">Go Roadmap</a>: A comprehensive guide to learning Go and its ecosystem.
 - <a href="https://go.dev/wiki/" target="_blank">Go Wiki</a>: A collection of information about the Go Programming Language.
 - <a href="https://www.cloudbees.com/blog/best-practices-for-a-new-go-developer" target="_blank">Best Practices for a New Go Developer</a>: Key practices for new Go developers to understand and adopt.
 - <a href="https://go.dev/ref/spec" target="_blank">The Go Programming Language Specification</a>: This is the reference manual for the Go programming language
 - <a href="https://200lab.io/blog/tag/golang/" target="_blank">Go blogs</a>: Collection of articles sharing Golang programming techniques
+- <a href="https://kungfutech.edu.vn/khoa-hoc/go" target="_blank">Go course</a>: Go Lang programming course from basic to advanced

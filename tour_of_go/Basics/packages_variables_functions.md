@@ -42,6 +42,47 @@ Trong Go, tên bắt đầu bằng chữ cái hoa được export và có thể 
 
 Khi import một gói, bạn chỉ có thể sử dụng các tên được export.
 
+Ví dụ 1: Truy cập từ cùng một package
+```go
+package main
+
+import "fmt"
+
+type Person struct {
+	Name string
+	Age  int
+	addr string // Unexported field
+}
+
+func main() {
+	p := Person{Name: "Bob", Age: 25, addr: "N/A"}
+	
+	// Truy cập các trường từ cùng một package
+	fmt.Println("Name:", p.Name) // OK
+	fmt.Println("Age:", p.Age)   // OK
+	fmt.Println("Address:", p.addr) // OK - vì đang truy cập từ cùng package
+}
+```
+
+Ví dụ 2: Truy cập từ một package khác
+```go
+package other
+
+import (
+	"fmt"
+	"main" // Giả sử package `main` đã được import
+)
+
+func PrintPersonDetails() {
+	p := main.Person{Name: "Alice", Age: 30, addr: "HN"}
+	
+	// Truy cập các trường từ một package khác
+	fmt.Println("Name:", p.Name) // OK
+	fmt.Println("Age:", p.Age)   // OK
+	fmt.Println("Address:", p.addr) // LỖI - không thể truy cập vì `addr` không được export
+}
+```
+
 ## Functions
 
 Trong Go, một hàm có thể không nhận hoặc nhận nhiều đối số.

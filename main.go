@@ -39,3 +39,4 @@ func main() {
         fmt.Println("Kết quả:", result)
     }
 }
+// go run main.go

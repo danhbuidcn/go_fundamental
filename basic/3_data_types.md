@@ -97,14 +97,33 @@ Go cũng hỗ trợ các kiểu dữ liệu nâng cao cho phép bạn tổ chứ
 
 ### 2. **Slice (`slice`)**
 
-- **Mô tả**: Là một kiểu dữ liệu động, có thể thay đổi kích thước. Slices là một cách tiện lợi hơn để làm việc với tập hợp dữ liệu so với mảng.
+- **Mô tả**: 
+  - Là một kiểu dữ liệu động, có thể thay đổi kích thước. Slices là một cách tiện lợi hơn để làm việc với tập hợp dữ liệu so với mảng.
+  - slice chỉ chứa thông tin về mảng mà nó tham chiếu, bao gồm con trỏ đến phần tử đầu tiên của mảng, độ dài và sức chứa.
 - **Ứng dụng**: Thích hợp cho các tác vụ cần thay đổi kích thước động, như xử lý danh sách các mục dữ liệu hoặc tập hợp các đối tượng mà kích thước không được xác định trước.
 - **Khai báo và sử dụng**:
   ```go
-  var numbers []int = []int{1, 2, 3, 4, 5}
+  var numbers []int = []int{1, 2, 3, 4, 5} // slice number
   fmt.Println("slice:", numbers)
   ```
 - **Lưu ý**: Slices có thể thay đổi kích thước và có thể trỏ đến một mảng.
+
+```go
+// không cần phải trả về dữ liệu vì các thay đổi được thực hiện trên mảng mà slice tham chiếu sẽ phản ánh ngay lập tức bên ngoài hàm.
+func updateSlice(s []int) {
+    // thay đổi các giá trị trong mảng mà slice tham chiếu
+    s[0] = 10
+    s[1] = 20
+    s[2] = 30
+}
+
+func main() {
+    s := []int{1, 2, 3} // slice tham chiếu đến mảng
+    fmt.Println("Before update:", s) // [1 2 3]
+    updateSlice(s)
+    fmt.Println("After update:", s) // [10 20 30]
+}
+```
 
 ### 3. **Struct (`struct`)**
 
@@ -124,7 +143,10 @@ Go cũng hỗ trợ các kiểu dữ liệu nâng cao cho phép bạn tổ chứ
 
 ### 4. **Map (`map`)**
 
-- **Mô tả**: Là một kiểu dữ liệu cấu trúc dạng bảng băm (hash table) lưu trữ các cặp khóa-giá trị.
+- **Mô tả**: 
+  - Là một kiểu dữ liệu cấu trúc dạng bảng băm (hash table) lưu trữ các cặp khóa-giá trị.
+  - Là cấu trúc dữ liệu tham chiếu, nghĩa là khi bạn truyền một map vào hàm, bạn đang truyền một tham chiếu đến map đó.
+  - Do đó, bạn không cần sử dụng con trỏ với maps.
 - **Ứng dụng**: Thích hợp cho việc tra cứu dữ liệu nhanh chóng dựa trên khóa, chẳng hạn như lưu trữ cấu hình, lập chỉ mục, và xử lý dữ liệu trong các ứng dụng web.
 - **Khai báo và sử dụng**:
   ```go
@@ -134,6 +156,23 @@ Go cũng hỗ trợ các kiểu dữ liệu nâng cao cho phép bạn tổ chứ
   fmt.Println("map:", myMap)
   ```
 - **Lưu ý**: Maps rất linh hoạt và nhanh chóng cho việc tra cứu dữ liệu. Tuy nhiên, không có thứ tự cho các phần tử trong map.
+
+```go
+package main
+
+import "fmt"
+
+func updateMap(m map[string]int) {
+    m["Alice"] = 30
+}
+
+func main() {
+    m := map[string]int{"Bob": 25}
+    fmt.Println("Before update:", m)
+    updateMap(m)
+    fmt.Println("After update:", m)
+}
+```
 
 ### 5. **Interface (`interface`)**
 
@@ -157,6 +196,31 @@ Go cũng hỗ trợ các kiểu dữ liệu nâng cao cho phép bạn tổ chứ
   fmt.Println("interface:", s.Speak())
   ```
 - **Lưu ý**: Interfaces cho phép viết mã linh hoạt và mở rộng, với khả năng sử dụng các kiểu dữ liệu khác nhau mà không cần biết rõ kiểu cụ thể.
+
+```go
+package main
+
+import "fmt"
+
+type Describer interface {
+    Describe()
+}
+
+type Person struct {
+    Name string
+    Age  int
+}
+
+func (p *Person) Describe() {
+    fmt.Printf("Name: %s, Age: %d\n", p.Name, p.Age)
+}
+
+func main() {
+    p := Person{Name: "Alice", Age: 30}
+    var d Describer = &p
+    d.Describe()
+}
+```
 
 ## Chuyển Đổi Kiểu Dữ Liệu
 
